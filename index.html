@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sunshine T Academy | L3 Ports & Services</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07111f;color:#eef6ff;font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+main{max-width:1000px;margin:auto;padding:22px}.hero,.sec{background:#0e1d31;border:1px solid #294866;border-radius:22px;padding:24px;margin-bottom:18px}
+.hero{text-align:center;background:linear-gradient(135deg,#102d49,#091525)}.badge{display:inline-block;border:1px solid #42d9ff;color:#42d9ff;border-radius:30px;padding:5px 14px;font-weight:bold}
+h1{font-size:46px;margin:10px 0 0}h2{font-size:28px;margin:3px 0}.muted{color:#a9bdd3}
+.title{font-size:25px;font-weight:900;margin-bottom:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card,.step,.q{background:#122640;border:1px solid #294866;border-radius:15px;padding:15px}.card b{display:block;font-size:19px}
+.warn{background:#30260d;border:1px solid #8d7126;color:#ffe9a5;border-radius:14px;padding:14px;font-weight:bold}
+.steps{counter-reset:n}.step{margin:11px 0;padding-right:54px;position:relative}.step:before{counter-increment:n;content:counter(n);position:absolute;right:13px;top:13px;background:#50e39a;color:#062017;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:bold}
+.cmd,.out{direction:ltr;text-align:left;font-family:Consolas,monospace;border-radius:12px;padding:14px;margin:10px 0;overflow:auto}.cmd{background:#03070c;color:#70f5ad;border:1px solid #24523d}.out{background:#05090e;border:1px solid #33485c}.cyan{color:#42d9ff}.green{color:#50e39a}.yellow{color:#ffd166}
+.flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px}.box{background:#102640;border:1px solid #315373;border-radius:14px;padding:13px 18px;text-align:center;font-weight:bold}.arrow{font-size:25px;color:#42d9ff}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #294866;padding:10px;text-align:center}th{background:#153552}
+label{display:block;background:#0a1728;border:1px solid #233e5a;border-radius:11px;padding:10px;margin:7px 0}
+button{width:100%;background:#0a1728;color:#eef6ff;border:1px solid #294866;border-radius:11px;padding:12px;margin:5px 0;text-align:right;font-size:16px}button:focus+.ans,button:active+.ans{display:block}.ans{display:none;background:#102f35;padding:10px;border-radius:10px}
+footer{text-align:center;color:#9bb0c5;padding:20px}@media print{body{background:white;color:#111}.hero,.sec,.card,.step,.q{background:white;color:#111;border-color:#aaa}.warn{color:#111}}
+</style></head>
+<body><main>
+<section class="hero"><div class="badge">☀️ SUNSHINE T ACADEMY</div><h1>المحاضرة الثالثة</h1><h2>🔐 Ports & Services</h2><p class="muted">دليل عملي خطوة بخطوة — مصمم بحيث طالب 10 سنوات يقدر يتابع لوحده</p></section>
+
+<section class="sec"><div class="title">🎯 هنخرج من المحاضرة بإيه؟</div>
+<div class="grid"><div class="card">🚪<b>Port</b>باب رقمي له رقم.</div><div class="card">🛠️<b>Service</b>الخدمة التي تعمل خلف الباب.</div><div class="card">🔎<b>Nmap</b>إيه المتاح؟</div><div class="card">👀<b>Wireshark</b>إيه اللي بيحصل؟</div></div></section>
+
+<section class="sec"><div class="title">🧠 افهمها كأنها عمارة</div><div class="flow"><div class="box">🏢 الكمبيوتر<br>العمارة</div><div class="arrow">←</div><div class="box">🚪 Port<br>باب برقم</div><div class="arrow">←</div><div class="box">🛠️ Service<br>الخدمة</div></div><p>💡 مثال: <b>80</b> منفذ شائع لخدمة HTTP. وجود منفذ مفتوح لا يعني أن الجهاز مخترق.</p></section>
+
+<section class="sec"><div class="title">🛡️ قاعدة الأمان</div><div class="warn">⚠️ استخدم Nmap وWireshark فقط على جهازك أو معمل عندك تصريح واضح بفحصه. لا تفحص أجهزة أشخاص آخرين أو مواقع الإنترنت للتجربة.</div></section>
+
+<section class="sec steps"><div class="title">1️⃣ أولًا: اعرف IP المعمل</div>
+<div class="step"><b>افتح Command Prompt</b><br>اضغط Windows واكتب <b>cmd</b> ثم افتحه.</div>
+<div class="step"><b>اكتب:</b><div class="cmd">ipconfig</div>ابحث عن <b>IPv4 Address</b>، مثل:<div class="out">IPv4 Address . . . : 192.168.1.20</div></div>
+<div class="step"><b>مهم:</b> العنوان عندك قد يكون مختلفًا. استخدم عنوان جهاز المعمل الذي حدده المدرس.</div></section>
+
+<section class="sec steps"><div class="title">2️⃣ ثانيًا: اعمل فحص Nmap</div>
+<div class="step"><b>افتح Command Prompt</b> واستخدم Nmap المثبت عندك.</div>
+<div class="step"><b>اكتب:</b><div class="cmd">nmap -sV LAB-IP</div>استبدل <b>LAB-IP</b> بعنوان هدف المعمل المصرّح به.</div>
+<div class="step"><b>شكل النتيجة قد يكون مثل:</b><div class="out"><span class="cyan">PORT</span>     <span class="cyan">STATE</span>     <span class="cyan">SERVICE</span><br>
+22/tcp     <span class="green">open</span>      ssh<br>
+80/tcp     <span class="green">open</span>      <span class="yellow">http</span><br>
+443/tcp    <span class="green">open</span>      <span class="yellow">https</span></div></div></section>
+
+<section class="sec"><div class="title">🔍 اقرأ النتيجة في 4 أسئلة</div>
+<table><tr><th>الخانة</th><th>معناها ببساطة</th></tr><tr><td>PORT</td><td>رقم الباب</td></tr><tr><td>STATE</td><td>الباب مفتوح أم لا؟</td></tr><tr><td>SERVICE</td><td>الخدمة الموجودة</td></tr><tr><td>tcp / udp</td><td>بروتوكول النقل</td></tr></table>
+<p>⭐ <b>Nmap = What is available?</b> — إيه المتاح؟</p></section>
+
+<section class="sec steps"><div class="title">3️⃣ ثالثًا: شوف حركة الشبكة بـ Wireshark</div>
+<div class="step"><b>افتح Wireshark</b> واختار واجهة الشبكة المستخدمة في المعمل: Wi‑Fi أو Ethernet.</div>
+<div class="step"><b>Start</b> لبدء Capture.</div>
+<div class="step"><b>نفّذ النشاط الذي حدده المدرس</b> داخل المعمل فقط.</div>
+<div class="step"><b>Stop</b> لإيقاف الالتقاط.</div>
+<div class="step"><b>جرّب الفلتر:</b><div class="cmd">tcp.port == 80</div>لو لم يظهر شيء، فهذا طبيعي إذا لم يوجد Traffic على هذا المنفذ.</div>
+<div class="step"><b>اختار Packet</b> وابحث عن Source وDestination وProtocol.</div>
+<p>⭐ <b>Wireshark = What is happening?</b> — إيه اللي بيحصل؟</p></section>
+
+<section class="sec"><div class="title">🕵️ تحدي Port Detective</div><div class="out">PORT     STATE     SERVICE<br>22/tcp   open      ssh<br>80/tcp   open      http<br>443/tcp  open      https</div>
+<div class="grid"><div class="card">❓ كام Port؟</div><div class="card">❓ أي Port للـHTTP؟</div><div class="card">❓ هل Open معناها Hacked؟</div><div class="card">❓ أنهي أداة تشوف Traffic؟</div></div></section>
+
+<section class="sec"><div class="title">✅ Checklist</div>
+<label><input type="checkbox"> فهمت Port.</label><label><input type="checkbox"> فهمت Service.</label><label><input type="checkbox"> استخدمت ipconfig.</label><label><input type="checkbox"> نفذت Nmap على هدف مصرح به.</label><label><input type="checkbox"> قرأت PORT / STATE / SERVICE.</label><label><input type="checkbox"> عملت Capture في Wireshark.</label><label><input type="checkbox"> عرفت الفرق بين Nmap وWireshark.</label></section>
+
+<section class="sec"><div class="title">🧩 اختبار سريع — اضغط على السؤال</div>
+<button>1️⃣ Port يعني إيه؟</button><div class="ans">باب رقمي له رقم تتواصل من خلاله خدمة عبر الشبكة.</div>
+<button>2️⃣ Nmap بيساعدنا نعرف إيه؟</button><div class="ans">يساعدنا نكتشف المنافذ والخدمات المتاحة على هدف مصرح لنا بفحصه.</div>
+<button>3️⃣ Wireshark بيعمل إيه؟</button><div class="ans">يحلل حركة الشبكة والـPackets التي نلتقطها في بيئة مسموح لنا بتحليلها.</div>
+<button>4️⃣ هل Open معناها Hacked؟</button><div class="ans">لا. Open تعني أن خدمة تستقبل اتصالات على المنفذ؛ لا تعني وحدها وجود اختراق.</div></section>
+
+<section class="sec"><div class="title">🏠 الواجب</div><ol><li>اكتب تعريف Port.</li><li>اكتب تعريف Service.</li><li>اكتب الفرق بين Nmap وWireshark.</li><li>في معمل مصرح به، سجل 3 Ports واسم الـService بجانب كل واحد.</li></ol></section>
+
+<section class="sec"><div class="title">🏆 الخلاصة</div><div class="flow"><div class="box">🚪 Port<br>رقم الباب</div><div class="box">🛠️ Service<br>الخدمة</div><div class="box">🔎 Nmap<br>إيه المتاح؟</div><div class="box">👀 Wireshark<br>إيه اللي بيحصل؟</div></div></section>
+<footer>☀️ Sunshine T Academy — بنحوّل الحلم لكود 🌟</footer>
+</main></body></html>
